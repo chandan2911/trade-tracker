@@ -2,10 +2,11 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 const useFetch = (url) => {
-  const [Data, setData] = useState(null);
+  const [Data, setData] = useState([]);
   const [Error, setError] = useState(null);
-  const [isLoading, setisLoading] = useState(true);
+  const [isLoading, setisLoading] = useState(false);
   useEffect(() => {
+    setisLoading(true);
     axios
       .get(url)
       .then((res) => {

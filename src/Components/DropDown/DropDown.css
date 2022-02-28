@@ -1,0 +1,14 @@
+.DropDown{
+    color: black;
+}
+select{
+    padding:0.5rem 1rem;
+    background-color: transparent;
+    color: white;
+    border-radius: 6px;
+    margin: 1rem;
+}
+option{
+    background-color: black;
+    outline: none;
+}
