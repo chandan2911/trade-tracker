@@ -2,7 +2,7 @@ import React from "react";
 
 const Table = (props) => {
   const { Data } = props;
-  console.log(Data[0]);
+
   return (
     <div>
       <table>
