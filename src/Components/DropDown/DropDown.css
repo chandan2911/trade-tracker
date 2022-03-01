@@ -1,14 +1,14 @@
-.DropDown{
-    color: black;
+.DropDown {
+  color: white;
 }
-select{
-    padding:0.5rem 1rem;
-    background-color: transparent;
-    color: white;
-    border-radius: 6px;
-    margin: 1rem;
+select {
+  padding: 0.5rem 1rem;
+  background-color: transparent;
+  color: black;
+  border-radius: 6px;
+  margin: 1rem;
 }
-option{
-    background-color: black;
-    outline: none;
+option {
+  background-color: white;
+  outline: none;
 }

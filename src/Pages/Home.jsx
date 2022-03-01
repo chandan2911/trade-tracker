@@ -1,6 +1,8 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import Loading from "../Components/loading/Loading";
+import Table from "../Components/Showtable/table";
 
 const Home = () => {
   const [Data, setData] = useState([]);
@@ -12,23 +14,25 @@ const Home = () => {
   useEffect(() => {
     axios
       .get(
-        `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currency}&order=market_cap_desc&per_page=100&page=1&sparkline=false`
+        `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currency}&order=market_cap_desc&per_page=200&page=1&sparkline=false`
       )
       .then((res) => {
-        setisLoading(!isLoading);
+        setisLoading(true);
         setData(res.data);
       })
       .catch((err) => {
-        setisLoading(!isLoading);
+        setisLoading(true);
         setError(err.message);
       })
       .finally(() => {
-        setisLoading(!isLoading);
+        setisLoading(false);
       });
   }, [currency]);
+
   return (
     <div className="home">
-      {isLoading ? <div>I am Loaded</div> : <div>I am Loading</div>}
+      {isLoading ? <Loading></Loading> : <Table Data={Data}></Table>}
+
       {Error ? <div>{Error}</div> : <div>{Data.length}</div>}
     </div>
   );
