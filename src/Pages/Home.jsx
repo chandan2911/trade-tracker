@@ -5,7 +5,7 @@ import MainSection from "../Components/mainSection/MainSection";
 const Home = () => {
   return (
     <div>
-    {/*   <Hero></Hero> */}
+      {/*   <Hero></Hero> */}
       <MainSection></MainSection>
     </div>
   );

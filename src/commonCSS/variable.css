@@ -1,0 +1,10 @@
+* {
+  /* dark themes colors */
+  --dark-primary-color: #ff4c29;
+  --dark-text-color: #f7f7f7;
+  --dark-background-color: #082032;
+  /* light themes colors  */
+  --light-primary-color: #ff7800;
+  --light-text-color: #082032;
+  --light-background-color: #f7f7f7;
+}

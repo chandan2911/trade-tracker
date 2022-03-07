@@ -1,10 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
 import currencySlice from "./currencySlice";
-import countSlice from "./countSlice";
+import themeSlice from "./themeSlice";
 
 export default configureStore({
   reducer: {
     currency: currencySlice,
-    count: countSlice,
+    theme: themeSlice,
   },
 });
