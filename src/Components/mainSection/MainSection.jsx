@@ -9,12 +9,12 @@ const MainSection = () => {
   const [Error, setError] = useState("");
   const [isLoading, setisLoading] = useState(false);
 
-  const currency = useSelector((state) => state.currency.value);
+  const { name, symbol } = useSelector((state) => state.currency);
 
   useEffect(() => {
     axios
       .get(
-        `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currency}&order=market_cap_desc&per_page=200&page=1&sparkline=false`
+        `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${name}&order=market_cap_desc&per_page=200&page=1&sparkline=false`
       )
       .then((res) => {
         setisLoading(true);
@@ -27,7 +27,7 @@ const MainSection = () => {
       .finally(() => {
         setisLoading(false);
       });
-  }, [currency]);
+  }, [name]);
 
   return (
     <div>

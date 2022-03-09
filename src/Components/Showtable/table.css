@@ -1,0 +1,27 @@
+.main-table {
+  margin: 3rem;
+  padding: 3rem;
+}
+.main-table table {
+  width: 80%;
+}
+.main-table-thead {
+  text-align: center;
+  font-size: 25px;
+  font-weight: 700;
+  text-transform: capitalize;
+  background-color: var(--light-primary-color);
+  
+}
+.main-table-thead th {
+  padding-inline: 30px;
+}
+.main-table-tbody {
+  text-align: center;
+  font-size:17px;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+.main-table-tbody td {
+  padding: 1rem;
+}
