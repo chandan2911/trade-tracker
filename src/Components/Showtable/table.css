@@ -1,6 +1,7 @@
 .main-table {
   margin: 3rem;
   padding: 3rem;
+  border: 2px solid;
 }
 .main-table table {
   width: 80%;

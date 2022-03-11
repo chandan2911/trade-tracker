@@ -46,13 +46,13 @@ const Table = (props) => {
                 <td>{symbol}</td>
 
                 <td>
-                  {logo+ " "}
+                  {logo + " "}
                   {current_price
                     .toString()
                     .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                 </td>
                 <td>
-                {logo+ " "}
+                  {logo + " "}
                   {market_cap.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                 </td>
                 <td>
@@ -62,7 +62,11 @@ const Table = (props) => {
                 </td>
                 <td>
                   {Math.abs(price_change_percentage_24h.toFixed(2))}
-                  <span> {price_change_percentage_24h > 0 ? "" : "⬇"}</span>
+                  {price_change_percentage_24h > 0 ? (
+                    <span className="up-arrow">&#x2197;</span>
+                  ) : (
+                    <span className="down-arrow">&#x2198;</span>
+                  )}
                 </td>
               </tr>
             </tbody>

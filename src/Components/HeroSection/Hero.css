@@ -1,0 +1,22 @@
+.hero-section {
+  display: flex;
+
+  width: 90vw;
+  gap: 2.5rem;
+  padding: 1.5rem;
+  height: 100vh;
+}
+.hero-art {
+  width: 50vw;
+  background-image: url("../../assets//hero-art-1.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.hero-trending-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 50%;
+  gap: 2rem;
+  flex-wrap: wrap;
+}

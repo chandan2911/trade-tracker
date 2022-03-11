@@ -1,1 +1,10 @@
-
+.trending-card {
+  display: flex;
+  border-radius: 35px;
+  align-items: center;
+  gap: 10px;
+  padding: 15px;
+  box-shadow: 9px 13px 37px 16px rgba(0, 0, 0, 0.4);
+  -webkit-box-shadow: 9px 13px 37px 16px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: 9px 13px 37px 16px rgba(0, 0, 0, 0.4);
+}

@@ -6,12 +6,18 @@ const Trending = ({ id, name, image, symbol, price_change_percentage_24h }) => {
       <div className="trending-card">
         <div className="trending-card-image">
           <img src={image} alt={name} width={100} />
-
-          <div className="trending-card-content">
-            <p>{name}</p>
-            <p>{symbol}</p>
-            <p>{price_change_percentage_24h}</p>
-          </div>
+        </div>
+        <div className="trending-card-content">
+          <p>{name}</p>
+          <p>{symbol}</p>
+          <p>
+            {Math.abs(price_change_percentage_24h)}
+            {price_change_percentage_24h > 0 ? (
+              <span className="up-arrow">&#x2197;</span>
+            ) : (
+              <span className="down-arrow">&#x2198;</span>
+            )}
+          </p>
         </div>
       </div>
     </div>
