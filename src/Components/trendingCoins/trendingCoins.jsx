@@ -8,10 +8,10 @@ const Trending = ({ id, name, image, symbol, price_change_percentage_24h }) => {
           <img src={image} alt={name} width={100} />
         </div>
         <div className="trending-card-content">
-          <p>{name}</p>
-          <p>{symbol}</p>
+          <p className="coin-name">{name}</p>
+          <p className="">{symbol}</p>
           <p>
-            {Math.abs(price_change_percentage_24h)}
+            {Math.abs(price_change_percentage_24h.toFixed(2))}
             {price_change_percentage_24h > 0 ? (
               <span className="up-arrow">&#x2197;</span>
             ) : (

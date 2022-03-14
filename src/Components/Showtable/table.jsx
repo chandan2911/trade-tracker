@@ -14,10 +14,11 @@ const Table = (props) => {
         <thead className="main-table-thead">
           <tr>
             <th>name</th>
-            <th>symbol</th>
+            <th className="non-mobile">Image</th>
+            <th className="non-mobile">symbol</th>
             <th>current_price</th>
-            <th>market_cap</th>
-            <th>total_volume</th>
+            <th className="non-mobile">market_cap</th>
+            <th className="non-mobile">total_volume</th>
             <th>gain</th>
           </tr>
         </thead>
@@ -43,7 +44,10 @@ const Table = (props) => {
             >
               <tr>
                 <td>{name}</td>
-                <td>{symbol}</td>
+                <td className="non-mobile">
+                  <img src={image} alt={name} width={30} />
+                </td>
+                <td className="non-mobile">{symbol}</td>
 
                 <td>
                   {logo + " "}
@@ -51,11 +55,11 @@ const Table = (props) => {
                     .toString()
                     .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                 </td>
-                <td>
+                <td className="non-mobile">
                   {logo + " "}
                   {market_cap.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                 </td>
-                <td>
+                <td className="non-mobile">
                   {total_volume
                     .toString()
                     .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}

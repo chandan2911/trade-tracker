@@ -28,6 +28,7 @@ const MainSection = () => {
         setisLoading(false);
       });
   }, [name]);
+  console.log(Data);
 
   return (
     <div>

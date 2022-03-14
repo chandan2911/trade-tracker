@@ -12,17 +12,38 @@
   font-weight: 700;
   text-transform: capitalize;
   background-color: var(--light-primary-color);
-  
 }
 .main-table-thead th {
   padding-inline: 30px;
 }
 .main-table-tbody {
   text-align: center;
-  font-size:17px;
+  font-size: 17px;
   font-weight: 500;
   text-transform: capitalize;
 }
 .main-table-tbody td {
   padding: 1rem;
+}
+.up-arrow {
+  color: green;
+  font-size: 19px;
+  font-weight: 900;
+}
+.down-arrow {
+  color: red;
+  font-size: 19px;
+  font-weight: 900;
+}
+@media screen and (max-width: 767px) {
+  .non-mobile {
+    display: none;
+  }
+  .main-table-thead th {
+    padding-inline: 10px;
+  }
+  .main-table-tbody {
+    font-size: 12px;
+    font-weight: 300;
+  }
 }
