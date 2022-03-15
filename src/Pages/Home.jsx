@@ -1,12 +1,14 @@
 import React from "react";
 import Hero from "../Components/HeroSection/Hero";
 import MainSection from "../Components/mainSection/MainSection";
+import TestRank from "./TestRank";
 
 const Home = () => {
   return (
     <div>
-      <Hero></Hero>
-      <MainSection></MainSection>
+      <TestRank></TestRank>
+      {/* <Hero></Hero>
+      <MainSection></MainSection> */}
     </div>
   );
 };
