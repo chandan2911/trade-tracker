@@ -29,7 +29,7 @@ const DropDown = () => {
     },
   ];
   const currency = useSelector((state) => state.currency);
-  console.log(currency);
+
   return (
     <div className="DropDown">
       <select

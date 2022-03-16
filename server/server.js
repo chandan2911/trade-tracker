@@ -10,7 +10,8 @@ app.listen(process.env.PORT, () => {
   console.log(`Server is running on port ${process.env.PORT}`);
 });
 
-app.get("/", async (req, res) => {
+app.get("/coin/all/", async (req, res) => {
+  console.log(req.body);
   try {
     const response = await axios.get(`${process.env.COIN_API_URL}`, {
       params: {
