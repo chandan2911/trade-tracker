@@ -1,5 +1,5 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setCurrency } from "../../redux/currencySlice";
 import "./DropDown.css";
 
@@ -7,36 +7,44 @@ const DropDown = () => {
   const dispatch = useDispatch();
   const currencyArr = [
     {
-      name: "usd",
-      value: "$",
+      uuid: "6mUvpzCc2lFo",
+      name: "INR",
+      sign: "₹",
     },
     {
-      name: "inr",
-      value: "₹",
+      uuid: "yhjMzLPhuIDl",
+
+      name: "USD",
+      sign: "$",
     },
     {
-      name: "eur",
-      value: "€",
+      uuid: "5k-_VTxqtCEI",
+      name: "EUR",
+      sign: "€",
     },
     {
-      name: "aed",
-      value: "د.إ",
+      uuid: "Hokyui45Z38f",
+      name: "GBP",
+      sign: "£",
     },
   ];
+  const currency = useSelector((state) => state.currency);
+  console.log(currency);
   return (
     <div className="DropDown">
       <select
         onChange={(e) => {
-          let name = e.target.value;
-          let symbol = currencyArr.find((item) => item.name === name).value;
-          console.log(symbol);
-          dispatch(setCurrency({ name, symbol }));
+          let name = e.target.value.toUpperCase();
+          const currency = currencyArr.find(
+            (currency) => currency.name === name
+          );
+          dispatch(setCurrency(currency));
         }}
       >
-        <option value="usd">USD</option>
-        <option value="inr">INR</option>
-        <option value="eur">EUR</option>
-        <option value="aed">AED</option>
+        <option value="usd">DOLLAR</option>
+        <option value="inr">RUPEE</option>
+        <option value="eur">EURO</option>
+        <option value="gbp">POUND</option>
       </select>
     </div>
   );
