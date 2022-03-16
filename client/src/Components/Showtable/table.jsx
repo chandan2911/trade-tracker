@@ -5,7 +5,7 @@ import "./table.css";
 const Table = (props) => {
   let navigate = useNavigate();
   const { Data } = props;
-  const { symbol: logo } = useSelector((state) => state.currency);
+  const { sign: logo } = useSelector((state) => state.currency);
   console.log(logo);
 
   return (
