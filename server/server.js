@@ -9,42 +9,24 @@ app.use(express.json());
 app.listen(process.env.PORT, () => {
   console.log(`Server is running on port ${process.env.PORT}`);
 });
-
+//getting all the coins from the api
 app.get("/coin/all/", async (req, res) => {
-  console.log(req.body);
+  const currency = req.headers.currency;
   try {
     const response = await axios.get(`${process.env.COIN_API_URL}`, {
       params: {
         timePeriod: "7d",
         limit: "100",
-        sparkline: "false",
+        referenceCurrencyUuid: currency,
       },
       headers: {
         "x-access-token": `${process.env.COIN_API_KEY}`,
       },
     });
+
     res.send(response.data);
   } catch {
-    res.status(500).send("Error");
+    res.send("ERROR 404");
   }
 });
 //
-app.get("/currency", async (req, res) => {
-  try {
-    const response = await axios.get(
-      "https://api.coinranking.com/v2/reference-currencies",
-      {
-        params: {
-          type: "fiat",
-          limit: "100",
-        },
-        headers: {
-          "x-access-token": `${process.env.COIN_API_KEY}`,
-        },
-      }
-    );
-    res.send(response.data);
-  } catch {
-    res.status(500).send("Error");
-  }
-});
