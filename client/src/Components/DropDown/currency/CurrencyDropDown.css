@@ -1,0 +1,15 @@
+.CurrencyDropdown {
+  border: 5px solid;
+}
+.dropbtn {
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+.dropbtn:hover {
+  background-color: #dcfddd;
+}
+.dropdown-content {
+  display: none;
+}
