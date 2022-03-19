@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { setTheme } from "../../redux/themeSlice";
 
-import DropDown from "../DropDown/DropDown";
+import CurrencyDropDown from "../DropDown/CurrencyDropDown";
 import "./Navbar.css";
 const Navbar = () => {
   const dispatch = useDispatch();
@@ -30,7 +30,7 @@ const Navbar = () => {
           <img src={require("../../assets/sun.png")} alt="light" width={40} />
         )}
       </div>
-      <DropDown></DropDown>
+      <CurrencyDropDown></CurrencyDropDown>
     </header>
   );
 };

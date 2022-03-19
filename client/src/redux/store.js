@@ -1,6 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import currencySlice from "./currencySlice";
 import orderBySlice from "./orderBySlice";
+import orderDirectionSlice from "./orderDirectionSlice";
 import themeSlice from "./themeSlice";
 import timeSlice from "./timeSlice";
 
@@ -9,7 +10,7 @@ export default configureStore({
     currency: currencySlice,
     theme: themeSlice,
     orderBy: orderBySlice,
-    orderByDirection: orderBySlice,
+    orderDirection: orderDirectionSlice,
     time: timeSlice,
   },
 });

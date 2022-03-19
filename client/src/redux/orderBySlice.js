@@ -3,11 +3,11 @@ import { createSlice } from "@reduxjs/toolkit";
 const orderBySlice = createSlice({
   name: "orderBy",
   initialState: {
-    orderBy: "price",
+    value: "price",
   },
   reducers: {
     setOrderBy: (state, action) => {
-      state.orderBy = action.payload;
+      state.value = action.payload;
     },
   },
 });

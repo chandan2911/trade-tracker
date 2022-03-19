@@ -1,16 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const orderByDirectionSlice = createSlice({
-  name: "orderByDirection",
+const orderDirectionSlice = createSlice({
+  name: "orderDirection",
   initialState: {
-    orderByDirection: "asc",
+    value: "asc",
   },
   reducers: {
-    setOrderByDirection: (state, action) => {
-      state.orderByDirection = action.payload;
+    setOrderDirection: (state, action) => {
+      state.value = action.payload;
     },
   },
 });
-export const { setOrderByDirection } = orderByDirectionSlice.actions;
+export const { setOrderDirection } = orderDirectionSlice.actions;
 
-export default orderByDirectionSlice.reducer;
+export default orderDirectionSlice.reducer;

@@ -1,14 +1,13 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { currencyArr } from "../../ExpectedValue";
 import { setCurrency } from "../../redux/currencySlice";
-import "./DropDown.css";
 
-const DropDown = () => {
+const CurrencyDropdown = () => {
   const dispatch = useDispatch();
 
   return (
-    <div className="DropDown">
+    <div className="Dropdown">
       <select
         onChange={(e) => {
           let name = e.target.value.toUpperCase();
@@ -28,4 +27,4 @@ const DropDown = () => {
   );
 };
 
-export default DropDown;
+export default CurrencyDropdown;
