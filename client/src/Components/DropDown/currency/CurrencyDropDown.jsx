@@ -12,24 +12,26 @@ const CurrencyDropdown = () => {
     dispatch(setCurrency(currency));
   };
   return (
-    <div className="CurrencyDropdown">
-      <button
+    <div className="CurrencyDropdown no-select">
+      <div
         onClick={() => {
           setToggle(!toggle);
         }}
         className="dropbtn"
       >
         <span>Currency:{sign}</span>
-
-        <i class="fa fa-angle-down"></i>
-      </button>
+        {toggle ? (
+          <i class="fa fa-angle-up"></i>
+        ) : (
+          <i class="fa fa-angle-down"></i>
+        )}
+      </div>
 
       {toggle && (
-        <ul className="dropdown-content">
+        <ul className="dropdown-content ">
           {currencyArr.map((currency) => (
             <li
               key={currency.uuid}
-              value={currency.name}
               onClick={() => {
                 handleChange(currency);
                 setToggle(!toggle);
