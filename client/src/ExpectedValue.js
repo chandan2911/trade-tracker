@@ -30,4 +30,4 @@ export const currencyArr = [
     sign: "£",
   },
 ];
-export const timePeriodArr = ["3h", "24", "7d", "30d", "3m", "1y", "5y"];
+export const timePeriodArr = ["3h", "24h", "7d", "30d", "3m", "1y", "5y"];
