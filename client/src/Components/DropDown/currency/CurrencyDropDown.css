@@ -1,15 +1,29 @@
-.CurrencyDropdown {
+.dropdown-content {
+  position: absolute;
+  flex-direction: column;
+  padding: 10px 20px;
+  width: max-content;
+  display: flex;
+  align-items: center;
   border: 5px solid;
+  margin: 10px;
 }
 .dropbtn {
+  background: var(--dark-primary-color);
+  color: white;
   padding: 16px;
   font-size: 16px;
   border: none;
+  display: flex;
+  justify-content: space-around;
   cursor: pointer;
 }
-.dropbtn:hover {
-  background-color: #dcfddd;
+.dropdown-item {
+  list-style: none;
+  margin-bottom: 5px;
+
 }
-.dropdown-content {
-  display: none;
+.dropdown-item:hover {
+  background: var(--dark-primary-color);
+  color: white;
 }
