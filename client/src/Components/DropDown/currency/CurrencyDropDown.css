@@ -5,25 +5,38 @@
   width: max-content;
   display: flex;
   align-items: center;
-  border: 5px solid;
-  margin: 10px;
+  background-color: var(--dark-primary-color);
+  width: 100px;
+  border-radius: 15px;
 }
 .dropbtn {
   background: var(--dark-primary-color);
-  color: white;
-  padding: 16px;
+  font-weight: 600;
+  width: 140px;
   font-size: 16px;
-  border: none;
   display: flex;
+  align-items: center;
   justify-content: space-around;
   cursor: pointer;
+  padding: 10px;
+  border-radius: 15px;
+}
+.dropbtn > * {
+  letter-spacing: 1.2px;
+}
+.dropbtn:hover {
+  transform: scale(1.06);
 }
 .dropdown-item {
+  cursor: pointer;
   list-style: none;
-  margin-bottom: 5px;
+  width: 100%;
 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 5px;
 }
 .dropdown-item:hover {
-  background: var(--dark-primary-color);
-  color: white;
+  transform: scale(1.2);
 }
