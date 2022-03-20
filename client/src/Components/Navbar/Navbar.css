@@ -13,6 +13,17 @@
   font-weight: 700;
   border: double 2px;
   padding: 0.7rem;
+  letter-spacing: 1.2px;
+  cursor: pointer;
+}
+.logo:hover {
+  transform: scale(1.1);
+}
+.isDarkTheme {
+  cursor: pointer;
+}
+.isDarkTheme:hover {
+  transform: scale(1.1);
 }
 @media only screen and (max-width: 600px) {
   .logo {

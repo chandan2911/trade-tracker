@@ -20,9 +20,9 @@ const OrderBy = () => {
       >
         <span>Order-by</span>
         {toggle ? (
-          <i class="fa fa-angle-up"></i>
+          <i className="fa fa-angle-up"></i>
         ) : (
-          <i class="fa fa-angle-down"></i>
+          <i className="fa fa-angle-down"></i>
         )}
       </div>
       {toggle && (

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { currencyArr } from "../../../ExpectedValue";
-import { setCurrency } from "../../../redux/currencySlice";
-import "./CurrencyDropDown.css";
+import { currencyArr } from "../../ExpectedValue";
+import { setCurrency } from "../../redux/currencySlice";
+import "./DropDown.css";
 
 const CurrencyDropdown = () => {
   const dispatch = useDispatch();
@@ -21,9 +21,9 @@ const CurrencyDropdown = () => {
       >
         <span>Currency:{sign}</span>
         {toggle ? (
-          <i class="fa fa-angle-up"></i>
+          <i className="fa fa-angle-up"></i>
         ) : (
-          <i class="fa fa-angle-down"></i>
+          <i className="fa fa-angle-down"></i>
         )}
       </div>
 

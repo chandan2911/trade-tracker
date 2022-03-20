@@ -3,11 +3,11 @@ import { createSlice } from "@reduxjs/toolkit";
 const orderDirectionSlice = createSlice({
   name: "orderDirection",
   initialState: {
-    value: "asc",
+    orderDirection: "asc",
   },
   reducers: {
     setOrderDirection: (state, action) => {
-      state.value = action.payload;
+      state.orderDirection = action.payload;
     },
   },
 });
