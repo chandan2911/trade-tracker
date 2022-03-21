@@ -1,6 +1,6 @@
 .time_selector {
   height: 56px;
-  width: 558px;
+  width: 30vw;
   border-radius: 53px;
   display: flex;
   justify-content: space-around;
@@ -11,7 +11,7 @@
 }
 
 .time_selector_btn {
-  padding: 0.8rem 1rem;
+  padding: 10px 12px;
   display: flex;
   font-size: 16px;
   font-weight: 600;

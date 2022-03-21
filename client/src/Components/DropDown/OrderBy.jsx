@@ -36,7 +36,7 @@ const OrderBy = () => {
               }}
               className="dropdown-item"
             >
-              {orderby === "24hVolume change" ? "24h Volume" : orderby}
+              {orderby}
             </li>
           ))}
         </ul>

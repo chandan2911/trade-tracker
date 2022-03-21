@@ -1,7 +1,8 @@
 export const orderByArr = [
   "price",
   "marketCap",
-  "24hVolume change",
+  "24hVolume ",
+  "change",
   "listedAt",
 ];
 

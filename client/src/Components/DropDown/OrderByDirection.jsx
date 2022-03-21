@@ -7,7 +7,9 @@ const OrderByDirection = () => {
   const handleChange = (od) => {
     dispatch(setOrderDirection(od));
   };
-  const { orderDirection } = useSelector((state) => state.orderDirection);
+  const { value: orderDirection } = useSelector(
+    (state) => state.orderDirection
+  );
 
   const [toggle, setToggle] = useState(false);
   const dispatch = useDispatch();
