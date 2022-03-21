@@ -9,41 +9,75 @@ app.use(express.json());
 app.listen(process.env.PORT, () => {
   console.log(`Server is running on port ${process.env.PORT}`);
 });
+//getting all the coins from the api
+app.get("/coins/all/", async (req, res) => {
+  const { time, currency, orderby, orderdirection } = req.headers;
 
-app.get("/", async (req, res) => {
+  console.log(orderby, orderdirection, currency, time);
   try {
     const response = await axios.get(`${process.env.COIN_API_URL}`, {
       params: {
-        timePeriod: "7d",
-        limit: "100",
-        sparkline: "false",
+        referenceCurrencyUuid: currency,
+        timePeriod: time,
+        orderBy: orderby,
+        orderDirection: orderdirection,
       },
       headers: {
         "x-access-token": `${process.env.COIN_API_KEY}`,
       },
     });
-    res.send(response.data);
+
+    res.send(response.data.data.coins);
   } catch {
-    res.status(500).send("Error");
+    res.send("ERROR 404");
   }
 });
-//
-app.get("/currency", async (req, res) => {
+//getting single Coin from the api
+app.get("/coin/single/", async (req, res) => {
+  const { uuid, currency, time } = req.headers;
+  console.log("Hello");
+  console.log(uuid, currency, time);
+
+  try {
+    const response = await axios.get(`${process.env.SINGLE_API_URL}/${uuid}`, {
+      params: {
+        referenceCurrencyUuid: currency,
+        timePeriod: time,
+      },
+      headers: {
+        "x-access-token": `${process.env.COIN_API_KEY}`,
+      },
+    });
+
+    res.send(response.data);
+  } catch {
+    res.send("ERROR 404");
+  }
+});
+
+//getting coin histroy from the api
+
+app.get("/coin/single/histroy", async (req, res) => {
+  const { uuid, currency, time } = req.headers;
+  console.log("Hello");
+  console.log(uuid, currency, time);
+
   try {
     const response = await axios.get(
-      "https://api.coinranking.com/v2/reference-currencies",
+      `${process.env.SINGLE_API_URL}/${uuid}/history`,
       {
         params: {
-          type: "fiat",
-          limit: "100",
+          referenceCurrencyUuid: currency,
+          timePeriod: time,
         },
         headers: {
           "x-access-token": `${process.env.COIN_API_KEY}`,
         },
       }
     );
+
     res.send(response.data);
   } catch {
-    res.status(500).send("Error");
+    res.send("ERROR 404");
   }
 });

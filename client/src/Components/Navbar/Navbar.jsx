@@ -2,8 +2,8 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { setTheme } from "../../redux/themeSlice";
+import CurrencyDropdown from "../DropDown/CurrencyDropDown";
 
-import DropDown from "../DropDown/DropDown";
 import "./Navbar.css";
 const Navbar = () => {
   const dispatch = useDispatch();
@@ -19,7 +19,7 @@ const Navbar = () => {
       >
         CryptoTracker
       </span>
-      <div onClick={() => dispatch(setTheme())}>
+      <div onClick={() => dispatch(setTheme())} className="isDarkTheme">
         {isDark ? (
           <img
             src={require("../../assets/night-mode.png")}
@@ -30,7 +30,7 @@ const Navbar = () => {
           <img src={require("../../assets/sun.png")} alt="light" width={40} />
         )}
       </div>
-      <DropDown></DropDown>
+      <CurrencyDropdown></CurrencyDropdown>
     </header>
   );
 };
