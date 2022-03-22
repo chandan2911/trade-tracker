@@ -10,7 +10,7 @@ const Table = (props) => {
 
   return (
     <div className="main-table">
-      <table>
+      {/*   <table>
         <thead className="main-table-thead">
           <tr>
             <th>name</th>
@@ -76,7 +76,7 @@ const Table = (props) => {
             </tbody>
           );
         })}
-      </table>
+      </table> */}
     </div>
   );
 };

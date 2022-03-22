@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import OrderByDirection from "../DropDown/OrderByDirection";
 import Loading from "../loading/Loading";
 import Table from "../Showtable/table";
 
@@ -9,15 +10,27 @@ const MainSection = () => {
   const [Error, setError] = useState("");
   const [isLoading, setisLoading] = useState(false);
 
-  const { name, symbol } = useSelector((state) => state.currency);
+  const currency = useSelector((state) => state.currency);
+  const { value: time } = useSelector((state) => state.time);
+  const { value: orderBy } = useSelector((state) => state.orderBy);
+  const { value: orderDirection } = useSelector(
+    (state) => state.orderDirection
+  );
 
+  console.log(time, orderBy, orderDirection);
   useEffect(() => {
     axios
-      .get(
-        `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${name}&order=market_cap_desc&per_page=200&page=1&sparkline=false`
-      )
+      .get("http://localhost:5000/coins/all", {
+        headers: {
+          currency: currency.uuid,
+          time: time,
+          orderBy: orderBy,
+          orderDirection: orderDirection,
+        },
+      })
       .then((res) => {
         setisLoading(true);
+
         setData(res.data);
       })
       .catch((err) => {
@@ -27,11 +40,11 @@ const MainSection = () => {
       .finally(() => {
         setisLoading(false);
       });
-  }, [name]);
-  console.log(Data);
-
+  }, [time, currency, orderBy, orderDirection]);
+  console.log(Data[0]);
   return (
     <div>
+      <OrderByDirection />
       {isLoading ? <Loading></Loading> : <Table Data={Data}></Table>}
       {Error ? <div>{Error}</div> : <div>{Data.length}</div>}
     </div>
