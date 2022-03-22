@@ -45,8 +45,8 @@ const MainSection = () => {
   return (
     <div>
       <OrderByDirection />
-      {/* {isLoading ? <Loading></Loading> : <Table Data={Data}></Table>}
-      {Error ? <div>{Error}</div> : <div>{Data.length}</div>} */}
+      {isLoading ? <Loading></Loading> : <Table Data={Data}></Table>}
+      {Error ? <div>{Error}</div> : <div>{Data.length}</div>}
     </div>
   );
 };
