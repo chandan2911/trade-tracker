@@ -7,7 +7,7 @@ import "./timeSelector.css";
 const TimeSelector = () => {
   const [Selected, setSelected] = useState(timePeriodArr[0]);
   const dispatch = useDispatch();
-  console.log(Selected);
+
   return (
     <div className="time_selector">
       {timePeriodArr.map((time) => (

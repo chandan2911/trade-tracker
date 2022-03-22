@@ -17,7 +17,6 @@ const MainSection = () => {
     (state) => state.orderDirection
   );
 
-  console.log(time, orderBy, orderDirection);
   useEffect(() => {
     axios
       .get("http://localhost:5000/coins/all", {
@@ -26,6 +25,7 @@ const MainSection = () => {
           time: time,
           orderBy: orderBy,
           orderDirection: orderDirection,
+          offset: 0,
         },
       })
       .then((res) => {
@@ -41,7 +41,7 @@ const MainSection = () => {
         setisLoading(false);
       });
   }, [time, currency, orderBy, orderDirection]);
-  console.log(Data[0]);
+
   return (
     <div>
       <OrderByDirection />

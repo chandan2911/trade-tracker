@@ -18,6 +18,7 @@ app.get("/coins/all/", async (req, res) => {
     const response = await axios.get(`${process.env.COIN_API_URL}`, {
       params: {
         referenceCurrencyUuid: currency,
+        offset: 4,
         timePeriod: time,
         orderBy: orderby,
         orderDirection: orderdirection,
