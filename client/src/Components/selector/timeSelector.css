@@ -1,0 +1,31 @@
+.time_selector {
+  height: 56px;
+  width: 30vw;
+  border-radius: 53px;
+  display: flex;
+  justify-content: space-around;
+  padding: 0.6rem 1rem;
+  align-items: center;
+  background-color: var(--dark-secondary-color);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.time_selector_btn {
+  padding: 10px 12px;
+  display: flex;
+  font-size: 16px;
+  font-weight: 600;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--dark-primary-color);
+  border-radius: 7px;
+  box-shadow: 0px 3px 7px 1px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  transition: width 2s;
+}
+.time_selector_btn:hover {
+  transform: scale(1.06);
+}
+.selected {
+  border: 5px solid rgba(236, 183, 136, 1);
+}

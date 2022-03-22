@@ -4,12 +4,14 @@ const currencySlice = createSlice({
   name: "currency",
   initialState: {
     name: "usd",
-    symbol: "$",
+    sign: "$",
+    uuid: "yhjMzLPhuIDl",
   },
   reducers: {
     setCurrency: (state, action) => {
       state.name = action.payload.name;
-      state.symbol = action.payload.symbol;
+      state.sign = action.payload.sign;
+      state.uuid = action.payload.uuid;
     },
   },
 });
