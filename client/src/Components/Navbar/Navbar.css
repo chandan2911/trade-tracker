@@ -15,8 +15,10 @@
   padding: 0.7rem;
   letter-spacing: 1.2px;
   cursor: pointer;
+  transition: background-color 0.7s ease-in-out;
 }
 .logo:hover {
+  background-color: var(--dark-primary-color);
   transform: scale(1.1);
 }
 .isDarkTheme {

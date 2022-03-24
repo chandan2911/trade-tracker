@@ -12,5 +12,4 @@ const orderDirectionSlice = createSlice({
   },
 });
 export const { setOrderDirection } = orderDirectionSlice.actions;
-
 export default orderDirectionSlice.reducer;

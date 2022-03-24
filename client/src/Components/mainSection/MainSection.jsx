@@ -18,6 +18,8 @@ const MainSection = () => {
   );
 
   useEffect(() => {
+    setisLoading(true);
+
     axios
       .get("http://localhost:5000/coins/all", {
         headers: {
@@ -29,12 +31,9 @@ const MainSection = () => {
         },
       })
       .then((res) => {
-        setisLoading(true);
-
         setData(res.data);
       })
       .catch((err) => {
-        setisLoading(true);
         setError(err.message);
       })
       .finally(() => {
@@ -45,8 +44,13 @@ const MainSection = () => {
   return (
     <div>
       <OrderByDirection />
-      {isLoading ? <Loading></Loading> : <Table Data={Data}></Table>}
-      {Error ? <div>{Error}</div> : <div>{Data.length}</div>}
+      {Error.length > 0 ? (
+        <div>{Error}</div>
+      ) : isLoading ? (
+        <Loading></Loading>
+      ) : (
+        <Table Data={Data}></Table>
+      )}
     </div>
   );
 };

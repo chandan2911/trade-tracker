@@ -18,7 +18,7 @@ app.get("/coins/all/", async (req, res) => {
     const response = await axios.get(`${process.env.COIN_API_URL}`, {
       params: {
         referenceCurrencyUuid: currency,
-        offset: 4,
+        offset: 1,
         timePeriod: time,
         orderBy: orderby,
         orderDirection: orderdirection,
@@ -60,7 +60,7 @@ app.get("/coin/single/", async (req, res) => {
 
 app.get("/coin/single/histroy", async (req, res) => {
   const { uuid, currency, time } = req.headers;
-  console.log("Hello");
+
   console.log(uuid, currency, time);
 
   try {
@@ -78,6 +78,25 @@ app.get("/coin/single/histroy", async (req, res) => {
     );
 
     res.send(response.data);
+  } catch {
+    res.send("ERROR 404");
+  }
+});
+//search the coin by name
+app.get("/coin/search/:id", async (req, res) => {
+  const { id } = req.params;
+  console.log(id);
+  try {
+    const response = await axios.get(
+      `https://api.coinranking.com/v2/search-suggestions?query=${id}`,
+      {
+        headers: {
+          "x-access-token": `${process.env.COIN_API_KEY}`,
+        },
+      }
+    );
+
+    res.send(response.data.data);
   } catch {
     res.send("ERROR 404");
   }
