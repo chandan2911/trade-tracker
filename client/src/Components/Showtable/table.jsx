@@ -5,7 +5,7 @@ import "./table.css";
 const Table = (props) => {
   let navigate = useNavigate();
   const { Data } = props;
-  console.log(Data);
+
   const { sign: logo } = useSelector((state) => state.currency);
   const MinimalNumber = (num) => {
     if (num >= 1000000000) {
