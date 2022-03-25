@@ -1,7 +1,30 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import axios from "axios";
+import "./HistoryChart.css";
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend,
+  registerables,
+} from "chart.js";
+import { Line } from "react-chartjs-2";
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend
+);
 
+ChartJS.register(...registerables);
 const HistoryChart = (props) => {
   const { coin } = props;
   const currency = useSelector((state) => state.currency);
@@ -31,42 +54,18 @@ const HistoryChart = (props) => {
       });
   }, [time, currency]);
 
-  ///seting the chart
   const settingLabels = () => {
     let labelsTime = Data.map((item) => {
-      let date = new Date(item.timestamp);
-      let currentTime = "";
+      let ts = item.timestamp;
+      let currentTime = new Date(ts * 1000);
       if (time === "3h") {
-        currentTime =
-          date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
-      } else {
-        currentTime =
-          date.getDate() +
-          "/" +
-          date.getMonth() +
-          "/" +
-          date.getFullYear() +
-          " " +
-          date.getHours() +
-          ":" +
-          date.getMinutes();
+        return currentTime.toLocaleTimeString();
       }
-      return currentTime;
+      return currentTime.toLocaleDateString();
     });
     return labelsTime;
   };
-  let labels = settingLabels();
-  const data = {
-    labels,
-    datasets: [
-      {
-        label: "Dataset 1",
-        data: labels.map(() => Data.price({ min: 0, max: 1000 }).toFixed(2)),
-        borderColor: "rgb(255, 99, 132)",
-        backgroundColor: "rgba(255, 99, 132, 0.5)",
-      },
-    ],
-  };
+
   return (
     <div>
       {isLoading ? (
@@ -75,7 +74,29 @@ const HistoryChart = (props) => {
         <div>{Error}</div>
       ) : (
         <div>
-          <div>{Data?.length}</div>
+          <div className="react-chart">
+            <Line
+              data={{
+                labels: settingLabels(),
+                datasets: [
+                  {
+                    label: "Price",
+                    data: Data.map((item) => {
+                      return item.price;
+                    }),
+                    borderColor: "#ff7800",
+                  },
+                ],
+              }}
+              options={{
+                elements: {
+                  point: {
+                    radius: 1,
+                  },
+                },
+              }}
+            ></Line>
+          </div>
         </div>
       )}
     </div>
