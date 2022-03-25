@@ -80,11 +80,14 @@ const HistoryChart = (props) => {
                 labels: settingLabels(),
                 datasets: [
                   {
-                    label: "Price",
+                    label: `Price in ${currency.name}`,
                     data: Data.map((item) => {
-                      return item.price;
+                      return item.price < 0.0001 ? 0 : item.price;
                     }),
-                    borderColor: "#ff7800",
+
+                    backgroundColor: "gold",
+                    borderColor: "gold",
+                    fill: false,
                   },
                 ],
               }}
