@@ -5,6 +5,9 @@ body {
   margin-block: 0;
   box-sizing: border-box;
 }
+.App {
+  min-height: 100vh;
+}
 .dark-theme {
   color: var(--dark-text-color);
   background-color: var(--dark-background-color);

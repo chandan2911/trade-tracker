@@ -12,8 +12,6 @@ app.listen(process.env.PORT, () => {
 //getting all the coins from the api
 app.get("/coins/all/", async (req, res) => {
   const { time, currency, orderby, orderdirection } = req.headers;
-
-  console.log(orderby, orderdirection, currency, time);
   try {
     const response = await axios.get(`${process.env.COIN_API_URL}`, {
       params: {
@@ -22,6 +20,29 @@ app.get("/coins/all/", async (req, res) => {
         timePeriod: time,
         orderBy: orderby,
         orderDirection: orderdirection,
+      },
+      headers: {
+        "x-access-token": `${process.env.COIN_API_KEY}`,
+      },
+    });
+
+    res.send(response.data.data.coins);
+  } catch {
+    res.send("ERROR 404");
+  }
+});
+//getting trending coins from the api
+app.get("/coins/trending/", async (req, res) => {
+  const { time, currency, orderby, orderdirection, offset } = req.headers;
+  try {
+    const response = await axios.get(`${process.env.COIN_API_URL}`, {
+      params: {
+        referenceCurrencyUuid: currency,
+        offset: offset,
+        timePeriod: time,
+        orderBy: orderby,
+        orderDirection: orderdirection,
+        limit: 6,
       },
       headers: {
         "x-access-token": `${process.env.COIN_API_KEY}`,

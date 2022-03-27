@@ -7,10 +7,20 @@ const SingleCoinDetails = (props) => {
   const { coin } = props;
   const currency = useSelector((state) => state.currency);
   const { value: time } = useSelector((state) => state.time);
-  const [Data, setData] = useState([]);
+
   const [Error, setError] = useState("");
   const [isLoading, setisLoading] = useState(false);
-
+  const [Data, setData] = useState({
+    name: "",
+    symbol: "",
+    price: "",
+    iconUrl: "",
+    websiteUrl: "",
+    rank: "",
+    change: "",
+    marketCap: "",
+    description: "",
+  });
   const MinimalNumber = (num) => {
     if (num >= 1000000000) {
       return (num / 1000000000).toFixed(2) + "B";
@@ -33,7 +43,18 @@ const SingleCoinDetails = (props) => {
         },
       })
       .then((res) => {
-        setData(res.data.data.coin);
+        let data = res.data.data.coin;
+        setData({
+          name: data.name,
+          symbol: data.symbol,
+          price: data.price,
+          iconUrl: data.iconUrl,
+          websiteUrl: data.websiteUrl,
+          rank: data.rank,
+          change: data.change,
+          marketCap: data.marketCap,
+          description: data.description,
+        });
       })
       .catch((err) => {
         setError(err.message);
@@ -42,11 +63,10 @@ const SingleCoinDetails = (props) => {
         setisLoading(false);
       });
   }, [time, currency]);
-  console.log(Data);
   const removeTags = (str) => {
     return str.replace(/<\/?[^>]+(>|$)/g, "");
   };
-  console.log(typeof Data);
+
   return (
     <div>
       {isLoading ? (
@@ -72,25 +92,25 @@ const SingleCoinDetails = (props) => {
               <div className="coin_detail_left">
                 <span className="coin_price">
                   Price:
-                  <span>{Data?.price}</span>
+                  <span>{MinimalNumber(Data?.price)}</span>
                 </span>
-                <span className="coin_rank">
+                {/* <span className="coin_rank">
                   Rank:
                   <span>{Data?.rank}</span>
-                </span>
+                </span> */}
                 <span className="coin_change">
                   Change:
                   <span>{Data?.change}</span>
                 </span>
                 <span className="coin_market_cap">
                   Market Cap:
-                  <span>{Data?.marketCap}</span>
+                  <span>{MinimalNumber(Data?.marketCap)}</span>
                 </span>
               </div>
               <div className="coin_detail_right">
                 <span className="coin_bio">
                   Bio:
-                  <span>{Data?.description}</span>
+                  <span>{removeTags(Data?.description)}</span>
                 </span>
               </div>
             </div>

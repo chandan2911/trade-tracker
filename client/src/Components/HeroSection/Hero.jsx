@@ -1,53 +1,73 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import Loading from "../loading/Loading";
 import Trending from "../trendingCoins/trendingCoins";
 import "./Hero.css";
 const Hero = () => {
-  const [trending, setTrending] = useState([]);
+  const [Data, setData] = useState([]);
   const [Error, setError] = useState("");
   const [isLoading, setisLoading] = useState(false);
-  const { name } = useSelector((state) => state.currency);
+
+  const currency = useSelector((state) => state.currency);
+  const { value: time } = useSelector((state) => state.time);
+  const { value: orderBy } = useSelector((state) => state.orderBy);
+  const { value: orderDirection } = useSelector(
+    (state) => state.orderDirection
+  );
 
   useEffect(() => {
+    setisLoading(true);
+
     axios
-      .get(
-        `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${name}&order=market_cap_desc&per_page=6&page=1&sparkline=false`
-      )
+      .get("http://localhost:5000/coins/trending", {
+        headers: {
+          currency: currency.uuid,
+          time: time,
+          orderBy: orderBy,
+          orderDirection: orderDirection,
+          offset: 0,
+        },
+      })
       .then((res) => {
-        setisLoading(true);
-        setTrending(res.data);
+        setData(res.data);
       })
       .catch((err) => {
-        setisLoading(true);
         setError(err.message);
       })
       .finally(() => {
         setisLoading(false);
       });
-  }, [name]);
-  console.log(trending);
+  }, [time, currency, orderBy, orderDirection]);
+
+  console.log(Data);
   return (
-    <div className="hero-section">
-      <div className="hero-trending-section">
-        {isLoading ||
-          trending.map((coins) => {
-            const { id, symbol, name, image, price_change_percentage_24h } =
-              coins;
-            return (
-              <Trending
-                key={id}
-                id={id}
-                symbol={symbol}
-                name={name}
-                image={image}
-                price_change_percentage_24h={price_change_percentage_24h}
-              />
-            );
-          })}
-      </div>
-      <div className="hero-art"></div>
-    </div>
+    <>
+      {isLoading ? (
+        <Loading></Loading>
+      ) : Error > 0 ? (
+        <div>{Error}</div>
+      ) : (
+        <div className="hero-section">
+          <div className="hero-trending-section">
+            {Data?.map((coins) => {
+              const { uuid, symbol, name, iconUrl, change } = coins;
+              return (
+                <Trending
+                  key={uuid}
+                  uuid={uuid}
+                  symbol={symbol}
+                  name={name}
+                  iconUrl={iconUrl}
+                  change={change}
+                />
+              );
+            })}
+          </div>
+          <div className="hero-art"></div>
+        </div>
+      )}
+    </>
   );
 };
 
