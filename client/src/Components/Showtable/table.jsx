@@ -24,14 +24,14 @@ const Table = (props) => {
       <table>
         <thead className="main-table-thead">
           <tr>
-            <th>name</th>
+            <th>Name</th>
             <th>Rank</th>
             <th className="non-mobile">Image</th>
-            <th className="non-mobile">symbol</th>
-            <th>current_price</th>
-            <th className="non-mobile">market_cap</th>
+            <th className="non-mobile">Symbol</th>
+            <th>Current Price</th>
+            <th className="non-mobile">Market Cap</th>
             {/* <th className="non-mobile">total_volume</th> */}
-            <th>gain</th>
+            <th>Gain</th>
           </tr>
         </thead>
         {Data.map((item) => {
@@ -49,7 +49,7 @@ const Table = (props) => {
 
           return (
             <tbody
-              className="main-table-tbody"
+              className="main-table-tbody "
               key={uuid}
               onClick={() => {
                 navigate(`/${uuid}`);

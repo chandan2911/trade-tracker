@@ -19,7 +19,12 @@ const Navbar = () => {
       >
         CryptoTracker
       </span>
-      <div onClick={() => dispatch(setTheme())} className="isDarkTheme">
+      <div
+        onClick={() => {
+          dispatch(setTheme(!isDark));
+        }}
+        className="isDarkTheme"
+      >
         {isDark ? (
           <img
             src={require("../../assets/night-mode.png")}

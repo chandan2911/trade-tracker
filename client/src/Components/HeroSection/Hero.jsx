@@ -49,7 +49,7 @@ const Hero = () => {
         <div>{Error}</div>
       ) : (
         <div className="hero-section">
-          <div className="hero-trending-section">
+          <div className="hero-trending-section ">
             {Data?.map((coins) => {
               const { uuid, symbol, name, iconUrl, change } = coins;
               return (
@@ -64,7 +64,6 @@ const Hero = () => {
               );
             })}
           </div>
-          <div className="hero-art"></div>
         </div>
       )}
     </>

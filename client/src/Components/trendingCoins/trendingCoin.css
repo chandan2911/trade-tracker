@@ -1,10 +1,49 @@
-.trending-card {
+.trending-card-light-theme {
+  box-shadow: inset 18px 13px 26px 19px rgba(0, 0, 0, 0.1),
+    0px 0px 36px 11px rgba(0, 0, 0, 0.1);
+  padding: 15px 15px;
   display: flex;
-  border-radius: 35px;
-  align-items: center;
+  border-radius: 5px;
   gap: 10px;
-  padding: 15px;
-  box-shadow: 9px 13px 37px 16px rgba(0, 0, 0, 0.4);
-  -webkit-box-shadow: 9px 13px 37px 16px rgba(0, 0, 0, 0.4);
-  -moz-box-shadow: 9px 13px 37px 16px rgba(0, 0, 0, 0.4);
+  width: 230px;
+
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.7s ease-in-out;
+}
+.trending-card-dark-theme {
+  box-shadow: inset 45px 15px 49px -2px #12324a, 0px 10px 15px -3px #12324a;
+  padding: 15px 15px;
+  display: flex;
+  border-radius: 5px;
+  gap: 10px;
+  width: 230px;
+
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.7s ease-in-out;
+}
+.trending-card:hover {
+  transform: scale(1.05);
+}
+
+@media screen and (max-width: 1000px) {
+  .card:nth-child(5) {
+    display: none;
+  }
+  .card:nth-child(6) {
+    display: none;
+  }
+}
+@media screen and (max-width: 767px) {
+  .card:nth-child(4) {
+    display: none;
+  }
+  .card:nth-child(5) {
+    display: none;
+  }
+
+  .card:nth-child(6) {
+    display: none;
+  }
 }

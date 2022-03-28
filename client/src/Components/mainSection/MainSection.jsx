@@ -43,7 +43,6 @@ const MainSection = () => {
 
   return (
     <div>
-      <OrderByDirection />
       {Error.length > 0 ? (
         <div>{Error}</div>
       ) : isLoading ? (
