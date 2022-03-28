@@ -9,7 +9,6 @@ const Hero = () => {
   const [Error, setError] = useState("");
   const [isLoading, setisLoading] = useState(false);
 
-  const currency = useSelector((state) => state.currency);
   const { value: time } = useSelector((state) => state.time);
   const { value: orderBy } = useSelector((state) => state.orderBy);
   const { value: orderDirection } = useSelector(
@@ -22,7 +21,6 @@ const Hero = () => {
     axios
       .get("http://localhost:5000/coins/trending", {
         headers: {
-          currency: currency.uuid,
           time: time,
           orderBy: orderBy,
           orderDirection: orderDirection,
@@ -38,7 +36,7 @@ const Hero = () => {
       .finally(() => {
         setisLoading(false);
       });
-  }, [time, currency, orderBy, orderDirection]);
+  }, [time, orderBy, orderDirection]);
 
   console.log(Data);
   return (

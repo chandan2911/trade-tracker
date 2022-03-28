@@ -1,6 +1,6 @@
-import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import "./SingleCoinDetails.css";
 import { useSelector } from "react-redux";
 
 const SingleCoinDetails = (props) => {
@@ -76,41 +76,39 @@ const SingleCoinDetails = (props) => {
       ) : (
         Data && (
           <div className="coin_details">
-            <header>
-              <img src={Data?.iconUrl} alt={Data?.name} width={30} />
-              <h1
-                className="coin_details_header"
-                onClick={() => {
-                  window.open(Data?.websiteUrl);
-                }}
-              >
-                {Data?.name}
-                <span className="coin_details_rank">{Data?.rank}</span>
-              </h1>
-            </header>
-            <div className="coin_details_body">
+            <div className="coin_details_header">
+              <header>
+                <img src={Data?.iconUrl} alt={Data?.name} />
+                <span
+                  className="coin_details_header"
+                  onClick={() => {
+                    window.open(Data?.websiteUrl);
+                  }}
+                >
+                  {Data?.name}
+                </span>
+                <span className="coin_details_rank">Rank:{Data?.rank}</span>
+              </header>
               <div className="coin_detail_left">
                 <span className="coin_price">
                   Price:
-                  <span>{MinimalNumber(Data?.price)}</span>
+                  {MinimalNumber(Data?.price)}
                 </span>
-                {/* <span className="coin_rank">
-                  Rank:
-                  <span>{Data?.rank}</span>
-                </span> */}
+
                 <span className="coin_change">
                   Change:
                   <span>{Data?.change}</span>
                 </span>
                 <span className="coin_market_cap">
                   Market Cap:
-                  <span>{MinimalNumber(Data?.marketCap)}</span>
+                  {MinimalNumber(Data?.marketCap)}
                 </span>
               </div>
+            </div>
+            <div className="coin_details_body">
               <div className="coin_detail_right">
                 <span className="coin_bio">
-                  Bio:
-                  <span>{removeTags(Data?.description)}</span>
+                  {removeTags(Data?.description)}
                 </span>
               </div>
             </div>

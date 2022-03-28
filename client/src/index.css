@@ -8,6 +8,7 @@ body {
 
 .App {
   min-height: 100vh;
+  letter-spacing: 1.6px;
 }
 .dark-theme {
   color: var(--dark-text-color);
