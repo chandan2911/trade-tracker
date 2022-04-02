@@ -1,27 +1,20 @@
-.trending-card-light-theme {
-  box-shadow: inset 18px 13px 26px 19px rgba(0, 0, 0, 0.1),
-    0px 0px 36px 11px rgba(0, 0, 0, 0.1);
+.trending-card {
   padding: 15px 15px;
   display: flex;
   border-radius: 5px;
   gap: 10px;
   width: 230px;
-
   align-items: center;
   cursor: pointer;
   transition: background-color 0.7s ease-in-out;
 }
-.trending-card-dark-theme {
+.trending-light-theme {
+  box-shadow: inset 18px 13px 26px 19px rgba(0, 0, 0, 0.1),
+    0px 0px 36px 11px rgba(0, 0, 0, 0.1);
+}
+.trending-dark-theme {
   box-shadow: inset 45px 15px 49px -2px #12324a, 0px 10px 15px -3px #12324a;
   padding: 15px 15px;
-  display: flex;
-  border-radius: 5px;
-  gap: 10px;
-  width: 230px;
-
-  align-items: center;
-  cursor: pointer;
-  transition: background-color 0.7s ease-in-out;
 }
 .trending-card:hover {
   transform: scale(1.05);

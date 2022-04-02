@@ -1,11 +1,13 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { orderByArr } from "../../ExpectedValue";
 import { setOrderBy } from "../../redux/orderBySlice";
 
 const OrderBy = () => {
   const dispatch = useDispatch();
   const [toggle, setToggle] = useState(false);
+  const { value } = useSelector((state) => state.orderBy);
+  console.log(value);
   const handleChange = (orderBy) => {
     dispatch(setOrderBy(orderBy));
   };
@@ -18,7 +20,7 @@ const OrderBy = () => {
         }}
         className="dropbtn"
       >
-        <span>Order-by</span>
+        <span>{value}</span>
         {toggle ? (
           <i className="fa fa-angle-up"></i>
         ) : (

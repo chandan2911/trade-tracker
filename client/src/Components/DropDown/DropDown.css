@@ -1,9 +1,8 @@
 .dropdown-content {
   position: absolute;
-  flex-direction: column;
   padding: 0.5rem 1rem;
-  width: max-content;
   display: flex;
+  flex-direction: column;
   align-items: center;
   background-color: var(--dark-primary-color);
   border-radius: 15px;
@@ -11,11 +10,9 @@
 .dropbtn {
   background: var(--dark-primary-color);
   font-weight: 600;
-  border: 5px solid;
-  font-size: 16px;
+  font-size: 1rem;
   display: flex;
   align-items: center;
-  justify-content: space-around;
   cursor: pointer;
   padding: 5%;
   border-radius: 15px;
@@ -29,8 +26,7 @@
 .dropdown-item {
   cursor: pointer;
   list-style: none;
-  width: 100%;
-
+  border: 5px solid;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -40,4 +36,12 @@
   transform: scale(1.2);
 }
 @media screen and (max-width: 767px) {
+  /* .dropdown-content {
+    width: 60px;
+    font-size: 12px;
+  }
+  .dropbtn {
+    width: 80px;
+    font-size: 12px;
+  } */
 }

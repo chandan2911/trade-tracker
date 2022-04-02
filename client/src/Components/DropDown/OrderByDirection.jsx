@@ -21,7 +21,7 @@ const OrderByDirection = () => {
         }}
         className="dropbtn"
       >
-        <span>SortBy {orderDirection}</span>
+        <span>{orderDirection}</span>
         {toggle ? (
           <i className="fa fa-angle-up"></i>
         ) : (

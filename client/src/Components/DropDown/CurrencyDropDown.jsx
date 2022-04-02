@@ -6,7 +6,7 @@ import "./DropDown.css";
 
 const CurrencyDropdown = () => {
   const dispatch = useDispatch();
-  const { sign } = useSelector((state) => state.currency);
+  const { sign, name } = useSelector((state) => state.currency);
   const [toggle, setToggle] = useState(false);
   const handleChange = (currency) => {
     dispatch(setCurrency(currency));
@@ -19,7 +19,7 @@ const CurrencyDropdown = () => {
         }}
         className="dropbtn"
       >
-        <span>Currency:{sign}</span>
+        <span>{name.toUpperCase()}</span>
         {toggle ? (
           <i className="fa fa-angle-up"></i>
         ) : (

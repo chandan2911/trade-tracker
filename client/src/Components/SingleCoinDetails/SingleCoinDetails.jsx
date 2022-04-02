@@ -97,7 +97,14 @@ const SingleCoinDetails = (props) => {
 
                 <span className="coin_change">
                   Change:
-                  <span>{Data?.change}</span>
+                  <span>
+                    {Math.abs(Data?.change)}
+                    {Data?.change > 0 ? (
+                      <span className="up-arrow">&#x2197;</span>
+                    ) : (
+                      <span className="down-arrow">&#x2198;</span>
+                    )}
+                  </span>
                 </span>
                 <span className="coin_market_cap">
                   Market Cap:
