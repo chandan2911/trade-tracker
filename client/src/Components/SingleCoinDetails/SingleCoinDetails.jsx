@@ -62,7 +62,7 @@ const SingleCoinDetails = (props) => {
       .finally(() => {
         setisLoading(false);
       });
-  }, [time, currency]);
+  }, [currency]);
   const removeTags = (str) => {
     return str.replace(/<\/?[^>]+(>|$)/g, "");
   };

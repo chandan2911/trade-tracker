@@ -44,6 +44,7 @@ const HistoryChart = (props) => {
         },
       })
       .then((res) => {
+        console.log(res.data, "error");
         setData(res.data.data.history);
       })
       .catch((err) => {

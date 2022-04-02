@@ -1,24 +1,23 @@
 .dropdown-content {
   position: absolute;
   flex-direction: column;
-  padding: 10px 20px;
+  padding: 0.5rem 1rem;
   width: max-content;
   display: flex;
   align-items: center;
   background-color: var(--dark-primary-color);
-  width: 100px;
   border-radius: 15px;
 }
 .dropbtn {
   background: var(--dark-primary-color);
   font-weight: 600;
-  width: 140px;
+  border: 5px solid;
   font-size: 16px;
   display: flex;
   align-items: center;
   justify-content: space-around;
   cursor: pointer;
-  padding: 10px;
+  padding: 5%;
   border-radius: 15px;
 }
 .dropbtn > * {
@@ -39,4 +38,6 @@
 }
 .dropdown-item:hover {
   transform: scale(1.2);
+}
+@media screen and (max-width: 767px) {
 }

@@ -32,6 +32,7 @@ const MainSection = () => {
       })
       .then((res) => {
         setData(res.data);
+        setError("");
       })
       .catch((err) => {
         setError(err.message);

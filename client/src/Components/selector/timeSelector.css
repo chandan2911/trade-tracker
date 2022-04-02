@@ -1,6 +1,6 @@
 .time_selector {
   height: 56px;
-  width: 30vw;
+  width: 500px;
   border-radius: 53px;
   display: flex;
   justify-content: space-around;
@@ -11,8 +11,9 @@
 }
 
 .time_selector_btn {
-  padding: 10px 12px;
   display: flex;
+  max-width: 20%;
+  padding: 12px 10px;
   font-size: 16px;
   font-weight: 600;
   justify-content: center;
@@ -28,4 +29,16 @@
 }
 .selected {
   border: 5px solid rgba(236, 183, 136, 1);
+}
+@media screen and (max-width: 767px) {
+  .time_selector {
+    width: 90vw;
+    height: auto;
+    padding: 0.6rem 0;
+  }
+  .time_selector_btn {
+    max-width: 20%;
+    padding: 2px 0;
+    font-size: 12px;
+  }
 }

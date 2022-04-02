@@ -26,9 +26,9 @@ app.get("/coins/all/", async (req, res) => {
       },
     });
 
-    res.send(response.data.data.coins);
+    res.status(200).send(response.data.data.coins);
   } catch {
-    res.send("ERROR 404");
+    res.status(400).send("ERROR 404");
   }
 });
 //getting trending coins from the api
@@ -49,17 +49,14 @@ app.get("/coins/trending/", async (req, res) => {
       },
     });
 
-    res.send(response.data.data.coins);
+    res.status(200).send(response.data.data.coins);
   } catch {
-    res.send("ERROR 404");
+    res.status(400).send("ERROR 404");
   }
 });
 //getting single Coin from the api
 app.get("/coin/single/", async (req, res) => {
   const { uuid, currency, time } = req.headers;
-  console.log("Hello");
-  console.log(uuid, currency, time);
-
   try {
     const response = await axios.get(`${process.env.SINGLE_API_URL}/${uuid}`, {
       params: {
@@ -71,9 +68,9 @@ app.get("/coin/single/", async (req, res) => {
       },
     });
 
-    res.send(response.data);
+    res.status(200).send(response.data);
   } catch {
-    res.send("ERROR 404");
+    res.status(400).send("ERROR 404").status(400);
   }
 });
 
@@ -98,15 +95,15 @@ app.get("/coin/single/histroy", async (req, res) => {
       }
     );
 
-    res.send(response.data);
+    res.status(200).send(response.data);
   } catch {
-    res.send("ERROR 404");
+    res.status(400).send("ERROR 404");
   }
 });
 //search the coin by name
 app.get("/coin/search/:id", async (req, res) => {
   const { id } = req.params;
-  console.log(id);
+
   try {
     const response = await axios.get(
       `https://api.coinranking.com/v2/search-suggestions?query=${id}`,
@@ -117,8 +114,8 @@ app.get("/coin/search/:id", async (req, res) => {
       }
     );
 
-    res.send(response.data.data);
+    res.status(200).send(response.data.data);
   } catch {
-    res.send("ERROR 404");
+    res.status(400).send("ERROR 404");
   }
 });
