@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import OrderByDirection from "../DropDown/OrderByDirection";
+
 import Loading from "../loading/Loading";
 import Table from "../Showtable/table";
 
