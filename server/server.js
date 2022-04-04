@@ -79,8 +79,6 @@ app.get("/coin/single/", async (req, res) => {
 app.get("/coin/single/histroy", async (req, res) => {
   const { uuid, currency, time } = req.headers;
 
-  console.log(uuid, currency, time);
-
   try {
     const response = await axios.get(
       `${process.env.SINGLE_API_URL}/${uuid}/history`,

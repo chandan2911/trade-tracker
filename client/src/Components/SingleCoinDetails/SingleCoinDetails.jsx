@@ -22,6 +22,7 @@ const SingleCoinDetails = (props) => {
     description: "",
   });
   const MinimalNumber = (num) => {
+    if (num === null) return 0;
     if (num >= 1000000000) {
       return (num / 1000000000).toFixed(2) + "B";
     } else if (num >= 1000000) {
@@ -35,7 +36,7 @@ const SingleCoinDetails = (props) => {
   useEffect(async () => {
     setisLoading(true);
     await axios
-      .get("/coin/single/", {
+      .get("http://localhost:5000/coin/single/", {
         headers: {
           currency: currency.uuid,
           time: time,

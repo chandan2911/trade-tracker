@@ -6,9 +6,10 @@ import "./DropDown.css";
 
 const CurrencyDropdown = () => {
   const dispatch = useDispatch();
-  const { sign, name } = useSelector((state) => state.currency);
+  const { name } = useSelector((state) => state.currency);
   const [toggle, setToggle] = useState(false);
   const handleChange = (currency) => {
+    console.log("Hello");
     dispatch(setCurrency(currency));
   };
   return (

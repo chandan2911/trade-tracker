@@ -1,6 +1,5 @@
 .main-table {
   padding: 3rem;
-
   overflow: hidden;
 }
 .main-table table {
@@ -24,6 +23,10 @@
   cursor: pointer;
   text-align: center;
 }
+.data-row:hover {
+  background-color: var(--light-primary-color);
+}
+
 .up-arrow {
   color: green;
   font-size: 19px;
@@ -42,6 +45,9 @@
   }
 }
 @media screen and (max-width: 767px) {
+  .main-table {
+    padding: 1rem;
+  }
   .non-mobile {
     display: none;
   }

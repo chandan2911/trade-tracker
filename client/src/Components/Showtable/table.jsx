@@ -55,7 +55,7 @@ const Table = (props) => {
                 navigate(`/${uuid}`);
               }}
             >
-              <tr>
+              <tr className="data-row">
                 <td>{rank}</td>
                 <td>{name}</td>
                 <td className="non-mobile">
