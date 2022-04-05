@@ -11,12 +11,15 @@ app.listen(process.env.PORT, () => {
 });
 //getting all the coins from the api
 app.get("/coins/all/", async (req, res) => {
-  const { time, currency, orderby, orderdirection } = req.headers;
+  const { time, currency, orderby, orderdirection, offset, limit } =
+    req.headers;
+  /* console.log(offset, limit); */
   try {
     const response = await axios.get(`${process.env.COIN_API_URL}`, {
       params: {
         referenceCurrencyUuid: currency,
-        offset: 1,
+        offset: offset,
+        limit: limit,
         timePeriod: time,
         orderBy: orderby,
         orderDirection: orderdirection,

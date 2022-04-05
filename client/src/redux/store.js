@@ -2,6 +2,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import currencySlice from "./currencySlice";
 import orderBySlice from "./orderBySlice";
 import orderDirectionSlice from "./orderDirectionSlice";
+import pageSlice from "./pageSlice";
 import themeSlice from "./themeSlice";
 import timeSlice from "./timeSlice";
 
@@ -12,5 +13,6 @@ export default configureStore({
     orderBy: orderBySlice,
     orderDirection: orderDirectionSlice,
     time: timeSlice,
+    page: pageSlice,
   },
 });

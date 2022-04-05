@@ -16,6 +16,7 @@ const MainSection = () => {
   const { value: orderDirection } = useSelector(
     (state) => state.orderDirection
   );
+  const { offset, limit } = useSelector((state) => state.page);
 
   useEffect(() => {
     setisLoading(true);
@@ -27,7 +28,8 @@ const MainSection = () => {
           time: time,
           orderBy: orderBy,
           orderDirection: orderDirection,
-          offset: 0,
+          offset: offset,
+          limit: limit,
         },
       })
       .then((res) => {
@@ -40,7 +42,7 @@ const MainSection = () => {
       .finally(() => {
         setisLoading(false);
       });
-  }, [time, currency, orderBy, orderDirection]);
+  }, [time, currency, orderBy, orderDirection, offset, limit]);
 
   return (
     <div>
