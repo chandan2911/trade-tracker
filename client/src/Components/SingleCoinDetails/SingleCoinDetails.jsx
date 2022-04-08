@@ -30,7 +30,7 @@ const SingleCoinDetails = (props) => {
     } else if (num >= 1000) {
       return (num / 1000).toFixed(2) + "K";
     } else {
-      return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+      return parseInt(num);
     }
   };
   useEffect(async () => {

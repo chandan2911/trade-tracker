@@ -2,6 +2,7 @@ import Filter from "../Components/FilterComponent/Filter";
 import Hero from "../Components/HeroSection/Hero";
 
 import MainSection from "../Components/mainSection/MainSection";
+import Pagination from "../Components/Pagination/Pagination";
 
 const Home = () => {
   return (
@@ -9,6 +10,7 @@ const Home = () => {
       <Hero></Hero>
       <Filter></Filter>
       <MainSection></MainSection>
+      <Pagination></Pagination>
     </div>
   );
 };

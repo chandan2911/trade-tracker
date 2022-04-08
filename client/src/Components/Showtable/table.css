@@ -51,11 +51,12 @@
   .non-mobile {
     display: none;
   }
-  .main-table-thead th {
-    padding: 0.5rem;
+  .main-table {
+    padding: 0.4rem;
   }
-  .main-table-tbody {
-    font-size: 12px;
-    font-weight: 300;
+  .main-table-thead th,
+  .main-table-tbody td {
+    font-size: 10px;
+    padding: 0.4rem;
   }
 }

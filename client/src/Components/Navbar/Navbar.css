@@ -2,6 +2,7 @@
   height: 10vh;
   display: flex;
   justify-content: space-between;
+  max-width: 100%;
 
   align-items: center;
   padding-inline: 3rem;
