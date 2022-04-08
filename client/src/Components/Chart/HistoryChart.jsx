@@ -36,7 +36,7 @@ const HistoryChart = (props) => {
   useEffect(async () => {
     setisLoading(true);
     await axios
-      .get("http://localhost:5000/coin/single/histroy", {
+      .get("/coin/single/histroy", {
         headers: {
           currency: currency.uuid,
           time: time,

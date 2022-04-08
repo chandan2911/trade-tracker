@@ -19,7 +19,7 @@ const Hero = () => {
     setisLoading(true);
 
     axios
-      .get("http://localhost:5000/coins/trending", {
+      .get("/coins/trending", {
         headers: {
           time: time,
           orderBy: orderBy,
@@ -43,7 +43,7 @@ const Hero = () => {
     <>
       {isLoading ? (
         <Loading></Loading>
-      ) : Error > 0 ? (
+      ) : Error.length > 0 ? (
         <div>{Error}</div>
       ) : (
         <div className="hero-section">

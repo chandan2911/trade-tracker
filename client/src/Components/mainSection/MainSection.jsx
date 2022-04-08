@@ -22,7 +22,7 @@ const MainSection = () => {
     setisLoading(true);
 
     axios
-      .get("http://localhost:5000/coins/all", {
+      .get("/coins/all", {
         headers: {
           currency: currency.uuid,
           time: time,

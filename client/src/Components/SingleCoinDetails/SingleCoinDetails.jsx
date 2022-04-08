@@ -36,7 +36,7 @@ const SingleCoinDetails = (props) => {
   useEffect(async () => {
     setisLoading(true);
     await axios
-      .get("http://localhost:5000/coin/single/", {
+      .get("/coin/single/", {
         headers: {
           currency: currency.uuid,
           time: time,
