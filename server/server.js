@@ -9,6 +9,9 @@ app.use(express.json());
 app.listen(process.env.PORT, () => {
   console.log(`Server is running on port ${process.env.PORT}`);
 });
+
+///API's//
+
 //getting all the coins from the api
 app.get("/coins/all/", async (req, res) => {
   const { time, currency, orderby, orderdirection, offset, limit } =
