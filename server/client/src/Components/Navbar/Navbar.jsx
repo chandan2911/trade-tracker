@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { setTheme } from "../../redux/themeSlice";
 import CurrencyDropdown from "../DropDown/CurrencyDropDown";
 
@@ -8,17 +8,13 @@ import "./Navbar.css";
 const Navbar = () => {
   const dispatch = useDispatch();
   const isDark = useSelector((state) => state.theme.isDark);
-  const navigate = useNavigate();
+
   return (
     <header className="navbar">
-      <span
-        className="logo"
-        onClick={() => {
-          navigate("/");
-        }}
-      >
+      <Link to="/" className="logo">
+        {" "}
         CryptoTracker
-      </span>
+      </Link>
       <div
         onClick={() => {
           dispatch(setTheme(!isDark));

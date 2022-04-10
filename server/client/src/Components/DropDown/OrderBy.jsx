@@ -7,7 +7,6 @@ const OrderBy = () => {
   const dispatch = useDispatch();
   const [toggle, setToggle] = useState(false);
   const { value } = useSelector((state) => state.orderBy);
-  console.log(value);
   const handleChange = (orderBy) => {
     dispatch(setOrderBy(orderBy));
   };

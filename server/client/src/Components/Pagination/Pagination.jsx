@@ -6,7 +6,6 @@ const Pagination = () => {
   const dataLimit = 10000;
   const { offset, limit } = useSelector((state) => state.page);
   const { isDark } = useSelector((state) => state.theme);
-  console.log(offset, limit);
   const total_page = Math.ceil(dataLimit / limit);
   const dispatch = useDispatch();
   const prevPage = () => {
@@ -45,6 +44,7 @@ const Pagination = () => {
           offset === page ? "active" : ""
         }  `}
         onClick={() => goToPage(page)}
+        key={page}
       >
         {page}
       </button>

@@ -38,7 +38,6 @@ const Hero = () => {
       });
   }, [time, orderBy, orderDirection]);
 
-  console.log(Data);
   return (
     <>
       {isLoading ? (
